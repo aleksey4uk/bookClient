@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Books from '../contacts';
+import Books from '../books';
 
 class HomePage extends Component {
   render() {
-    return <Redirect to="/books"/>
+    return <Books/>
   }
 }
 

@@ -1,44 +1,51 @@
 import React, {Component} from 'react';
 import { Table, Tag, Button } from 'antd';
 import { Redirect } from 'react-router-dom';
-import EditContact from '../edit-contact';
+//import EditContact from '../edit-contact';
 import swapiService from '../services/swapi-service';
 
-const swapiService = new swapiService();
+const SwapiService = new swapiService();
 
-class Contacts extends Component {
-  state {
+export default class Books extends Component {
+  state = {
     books: [],
     loading: true,
   }
 
   componentDidMount() {
-    getData()
-      .then((res)=>this.props.load(res))
-      .then(()=>this.props.complete())
+    const { getBooks } = SwapiService;
+    getBooks()
+      .then((res) => {
+        this.setState({
+          books: res,
+          loading: false,
+        })
+      })
   }
 
   render() {
-    let data;
-    if(this.props.loading) return <h1>Загрузка</h1>
+    if(this.state.loading) return <h1>Загрузка</h1>;
     const columns = [
       {
-        title: 'Имя',
-        dataIndex: 'name',
-        key: 'name',
+        title: 'Наименование книги',
+        dataIndex: 'bookName',
+        key: 'bookName',
+        id: 1,
         render: text => <a>{text}</a>,
       },
       {
-        title: 'Эл. почта',
-        dataIndex: 'email',
-        key: 'email',
+        title: 'Авторы',
+        id: 2,
+        dataIndex: 'author',
+        key: 'author',
       },
       {
-        title: 'Номер телефона',
-        dataIndex: 'number',
-        key: 'number',
+        title: 'Дата',
+        dataIndex: 'data',
+        id: 3,
+        key: 'data',
       },
-      {
+/*      {
         title: 'Действия',
         key: 'action',
         render: (text, record) => (
@@ -48,14 +55,22 @@ class Contacts extends Component {
             <a onClick={() => this.props.remove(text)}>Удалить</a>
           </span>
         ),
-      },
+      },*/
     ];
+
+    const data = [
+      {
+        bookName: 'Vasilii',
+        author: 'vasili, veron, nick marty',
+        data: '12.13.14',
+        id: 1
+      }
+    ];
+
     return (
       <div>
         <Table columns={columns} dataSource={data} />
-        <EditContact />
       </div>
     )
   }
 }
-export default Contacts;

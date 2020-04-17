@@ -1,2 +1,2 @@
-import Contacts from './contacts';
-export default Contacts;
+import Books from './books';
+export default Books;

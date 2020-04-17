@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../pages/home';
+import InfoPage from '../pages/info';
+import './app.css';
+import 'antd/dist/antd.css';
 
-export default class App extends Component {
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(console.log);
-  }
-
-  render() {
-    return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+const App = (props) => {
+  return (
+    <div className="app">
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route patch="/info" component={InfoPage} />
+      </Switch>
     </div>
-    );
-  }
+  )
 }
+
+export default App;
