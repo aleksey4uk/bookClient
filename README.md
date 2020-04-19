@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Установка и настройка приложения "КНИГИ"
 
-In the project directory, you can run:
+Для установки и работы с приложением вам потребуется следующее:
 
-### `npm start`
+### Установка nodejs, npm, NODEJS-SERVER, serve
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Если nodejs не установлен, то его необходимо скачать с оф. сайта: https://nodejs.org/en/
+Необходимо выбрать именно ту версию, которая соответствует вашей ОС<br />
+После установки проверяете версию `nodejs -v` и версию npm.<br/>
+В обычной версии сервера nodejs npm идет "в комплекте", но если у вас его нет, рекомендую разобраться в проблеме через оф. сообщество npm: https://www.npmjs.com/<br />
+После проверки всех компонентов, необходимо установить и настраить nodejs server из моего репозитория по адресу: <br/>`http://github.com/aleksey4uk/bookServer`<br/>
+Устанавливаем npm модуль serve: `sudo npm install -g serve`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Скачивание/клонирование приложения "книги" с gitHub
 
-### `npm test`
+Заходите на мою страницу в gitHub и скачиваете образ по ссылке https://github.com/aleksey4uk/bookClient "clone or download" либо "git clone"
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Установка и запуск приложения
 
-### `npm run build`
+После клонирования моего репозитория в свою домашнюю папку в терминале nodejs необходимо выполнить следующие действия
+1) Заходим в папку с моим проектом
+`cd bookClient`
+2) Запускаем наш nodejs-server. Установка и настройку вы найдете в моем репозитории: https://github.com/aleksey4uk/bookServer<br/>
+nodejs server должен по умолчанию запуститься на 8888 порту. Для проверки перейдите по адресу: http://localhost:8888
+2) Запускаем сервер и открываем наше приложение
+`serve -s build`
+3) У вас должна открыть страница в браузере со списком книг. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Дополнительная информация/работа с приложением
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1) Правильная работа приложения гарантируется только в том случае, если nodejs server будет запущен на 8888 порту <br/>
+2) В приложении можно переходить на страницу автора кликом по его имени. Возврат к списку производиться кликом на кнопку "назад"<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Наш клиентский сервер получает данные из сервере nodejs. 
