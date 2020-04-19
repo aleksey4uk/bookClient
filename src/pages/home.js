@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
 import Books from '../books';
 
-class HomePage extends Component {
-  render() {
-    return <Books/>
-  }
+const HomePage = ({books}) => {
+  return <Books books={books}/>
 }
 
 export default HomePage;

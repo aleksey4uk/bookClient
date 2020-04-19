@@ -1,0 +1,10 @@
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.site-page-header.cards-link {
+  position: absolute !important;
+  left: 0;
+}
